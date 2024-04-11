@@ -1,0 +1,97 @@
+@startuml
+package model {
+    interface DependencyModel {
+        + getPackagesInfo(): Collection<PackageInfo>
+    }
+
+    interface PackageInfo {
+        + getName(): String
+        + getCcn(): double
+        + getCohesion(): double
+        + getDistance(): double
+        + getAbstractness(): double
+        + getInstability(): double
+        + getEfferentPackages(): Collection<PackageInfo>
+        + getAfferentPackages(): Collection<PackageInfo>
+        + getClasses(): Collection<ClassInfo>
+    }
+
+    interface ClassInfo {
+        + getName(): String
+        + getPackage(): Package
+        + isAbstract(): boolean
+        + getCcn(): double
+        + getAfferent(): Collection<ClassInfo>
+        + getAfferent(dependencyType: DependencyType): Collection<ClassInfo>
+        + getEfferent(): Collection<ClassInfo>
+        + getEfferent(dependencyType: DependencyType): Collection<ClassInfo>
+    }
+
+    interface MethodInfo {
+        + getName(): String
+        + getCcn(): double
+    }
+
+    enum DependencyType {
+        INNER_PACKAGE
+        INNER_CLASS
+        ACROSS_PACKAGE
+    }
+
+    DependencyModel ..> PackageInfo: create
+    PackageInfo ..> ClassInfo: create
+    ClassInfo ..> PackageInfo: provide
+    ClassInfo ..> MethodInfo: create
+    ClassInfo ..> DependencyType: use
+}
+
+package framework {
+    interface ProjectAnalyzer {
+        + analyze(path: Path): DependencyModel
+    }
+    ProjectAnalyzer ..> DependencyModel: create
+
+    class AnalyzerConfig {
+        + setFeature(feature: String, active: boolean)
+    }
+}
+
+package asm {
+    class AsmProjectAnalyzer {}
+    AsmProjectAnalyzer ..|> ProjectAnalyzer
+
+    package model {
+        class AsmDependencyModel {}
+        AsmDependencyModel ..|> DependencyModel
+    }
+    AsmProjectAnalyzer .> AsmDependencyModel: create
+}
+
+package report {
+    class Report {}
+
+    interface ReportPlugin {
+        + generateContent(dependencyModel: DependencyModel, report: Report): void
+    }
+    ReportPlugin ..> Report: use
+
+    class ReportBuilder {
+        + build(dependencyModel: DependencyModel, path: Path): void
+    }
+    ReportBuilder ..> Report: create
+    ReportBuilder .right.> DependencyModel: use
+    ReportBuilder ..> ReportPlugin: from ServiceLoader
+}
+
+package puml {
+    class DiagramPlugin {}
+    DiagramPlugin ...|> ReportPlugin
+}
+
+package console {
+    class Main {}
+    Main .down.> ReportBuilder: use
+    Main .> ProjectAnalyzer: from ServiceLoader
+    Main .down.> Report: create
+}
+@enduml
