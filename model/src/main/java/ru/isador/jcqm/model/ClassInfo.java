@@ -2,6 +2,7 @@ package ru.isador.jcqm.model;
 
 import java.util.Collection;
 
+/** Информация о классе. */
 public interface ClassInfo {
 
     Collection<? extends ClassInfo> getEfferent(DependencyType dependencyType);

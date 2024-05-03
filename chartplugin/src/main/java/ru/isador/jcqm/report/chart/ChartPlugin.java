@@ -16,93 +16,91 @@ import ru.isador.jcqm.report.ReportPlugin;
 
 public class ChartPlugin implements ReportPlugin {
 
-    private static final String BODY = """
-            <div id="graph" style="height: 800px;">
-                <canvas id="myChart"></canvas>
-                <script>
-                    window.onload = function () {
-                        const ctx = document.getElementById('myChart');
-
-                        new Chart(ctx, {
-                                type: 'scatter',
-                                data: {
-                                    datasets:
-                                        [{
-                                            label: 'Пакеты',
-                                            data: packageData,
-                                            backgroundColor: 'rgb(255, 99, 132)'
-                                        },
-                                            {
-                                                label: 'Главная последовательность',
-                                                data: [{x: 0, y: 1}, {x: 1, y: 0}],
-                                                borderColor: 'rgb(211,211,211)',
-                                                backgroundColor: 'rgb(211,211,211)',
-                                                type: 'line',
-                                                order: 0
-                                            },
-                                            {
-                                                data: [{x: 0, y: 0.8}, {x: 0.8, y: 0}],
-                                                borderColor: 'rgb(211,211,211)',
-                                                backgroundColor: 'rgb(211,211,211)',
-                                                type: 'line',
-                                                borderDash: [6, 6],
-                                                order: 0
-                                            },
-                                            {
-                                                data: [{x: 0.2, y: 1}, {x: 1, y: 0.2}],
-                                                borderColor: 'rgb(211,211,211)',
-                                                backgroundColor: 'rgb(211,211,211)',
-                                                type: 'line',
-                                                borderDash: [6, 6],
-                                                order: 0
-                                            }]
-                                },
-                                options:
-                                    {
-                                        scales: {
-                                            x: {
-                                                type: 'linear',
-                                                position: 'bottom',
-                                                title: {
-                                                    text: 'Устойчивость',
-                                                    display: true
-                                                }
-                                            },
-                                            y: {
-                                                type: 'linear',
-                                                position: 'bottom',
-                                                title: {
-                                                    text: 'Абстрактность',
-                                                    display: true
-                                                }
-                                            }
-                                        },
-                                        plugins: {
-                                            tooltip: {
-                                                callbacks: {
-                                                    label: function (context) {
-                                                        if (context.raw.label) {
-                                                            return context.raw.label + ' (' + context.raw.x + ';' + context.raw.y + ')';
-                                                        }
-                                                        return null;
-                                                    }
-                                                }
-                                            },
-                                            legend: {
-                                                labels: {
-                                                    filter: function(item, chart) {
-                                                        return item.text;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                            }
-                        );
-                    }
-                </script>
-            </div>
-        """;
+    private static final String BODY = "    <div id=\"graph\" style=\"height: 800px;\">\n" +
+                                       "        <canvas id=\"myChart\"></canvas>\n" +
+                                       "        <script>\n" +
+                                       "            window.onload = function () {\n" +
+                                       "                const ctx = document.getElementById('myChart');\n" +
+                                       "\n" +
+                                       "                new Chart(ctx, {\n" +
+                                       "                        type: 'scatter',\n" +
+                                       "                        data: {\n" +
+                                       "                            datasets:\n" +
+                                       "                                [{\n" +
+                                       "                                    label: 'Пакеты',\n" +
+                                       "                                    data: packageData,\n" +
+                                       "                                    backgroundColor: 'rgb(255, 99, 132)'\n" +
+                                       "                                },\n" +
+                                       "                                    {\n" +
+                                       "                                        label: 'Главная последовательность',\n" +
+                                       "                                        data: [{x: 0, y: 1}, {x: 1, y: 0}],\n" +
+                                       "                                        borderColor: 'rgb(211,211,211)',\n" +
+                                       "                                        backgroundColor: 'rgb(211,211,211)',\n" +
+                                       "                                        type: 'line',\n" +
+                                       "                                        order: 0\n" +
+                                       "                                    },\n" +
+                                       "                                    {\n" +
+                                       "                                        data: [{x: 0, y: 0.8}, {x: 0.8, y: 0}],\n" +
+                                       "                                        borderColor: 'rgb(211,211,211)',\n" +
+                                       "                                        backgroundColor: 'rgb(211,211,211)',\n" +
+                                       "                                        type: 'line',\n" +
+                                       "                                        borderDash: [6, 6],\n" +
+                                       "                                        order: 0\n" +
+                                       "                                    },\n" +
+                                       "                                    {\n" +
+                                       "                                        data: [{x: 0.2, y: 1}, {x: 1, y: 0.2}],\n" +
+                                       "                                        borderColor: 'rgb(211,211,211)',\n" +
+                                       "                                        backgroundColor: 'rgb(211,211,211)',\n" +
+                                       "                                        type: 'line',\n" +
+                                       "                                        borderDash: [6, 6],\n" +
+                                       "                                        order: 0\n" +
+                                       "                                    }]\n" +
+                                       "                        },\n" +
+                                       "                        options:\n" +
+                                       "                            {\n" +
+                                       "                                scales: {\n" +
+                                       "                                    x: {\n" +
+                                       "                                        type: 'linear',\n" +
+                                       "                                        position: 'bottom',\n" +
+                                       "                                        title: {\n" +
+                                       "                                            text: 'Устойчивость',\n" +
+                                       "                                            display: true\n" +
+                                       "                                        }\n" +
+                                       "                                    },\n" +
+                                       "                                    y: {\n" +
+                                       "                                        type: 'linear',\n" +
+                                       "                                        position: 'bottom',\n" +
+                                       "                                        title: {\n" +
+                                       "                                            text: 'Абстрактность',\n" +
+                                       "                                            display: true\n" +
+                                       "                                        }\n" +
+                                       "                                    }\n" +
+                                       "                                },\n" +
+                                       "                                plugins: {\n" +
+                                       "                                    tooltip: {\n" +
+                                       "                                        callbacks: {\n" +
+                                       "                                            label: function (context) {\n" +
+                                       "                                                if (context.raw.label) {\n" +
+                                       "                                                    return context.raw.label + ' (' + context.raw.x + ';' + context.raw.y + ')';\n" +
+                                       "                                                }\n" +
+                                       "                                                return null;\n" +
+                                       "                                            }\n" +
+                                       "                                        }\n" +
+                                       "                                    },\n" +
+                                       "                                    legend: {\n" +
+                                       "                                        labels: {\n" +
+                                       "                                            filter: function(item, chart) {\n" +
+                                       "                                                return item.text;\n" +
+                                       "                                            }\n" +
+                                       "                                        }\n" +
+                                       "                                    }\n" +
+                                       "                                }\n" +
+                                       "                            }\n" +
+                                       "                    }\n" +
+                                       "                );\n" +
+                                       "            }\n" +
+                                       "        </script>\n" +
+                                       "    </div>\n";
 
     @Override
     public void generateContent(DependencyModel dependencyModel, Report report) {

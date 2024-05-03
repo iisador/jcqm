@@ -15,33 +15,29 @@ import ru.isador.jcqm.report.ReportPlugin;
 
 public class TablePlugin implements ReportPlugin {
 
-    private static final String TABLE_TEMPLATE = """
-        <div id="packageTable">
-            <table style="border: 1px solid black;" class="sortable">
-                <tr>
-                    <th style="border: 1px solid black;">Пакет</th>
-                    <th style="border: 1px solid black;">CCN</th>
-                    <th style="border: 1px solid black;">Абстрактность</th>
-                    <th style="border: 1px solid black;">Нестабильность</th>
-                    <th style="border: 1px solid black;">Связность</th>
-                    <th style="border: 1px solid black;">Афферентные зависимости</th>
-                    <th style="border: 1px solid black;">Эфферентные зависимости</th>
-                </tr>
-                %s
-            </table>
-        </div>
-        """;
-    private static final String ROW_TEMPLATE = """
-                <tr>
-                    <td style="border: 1px solid black;">%s</td>
-                    <td style="border: 1px solid black;">%.3f</td>
-                    <td style="border: 1px solid black;">%.3f</td>
-                    <td style="border: 1px solid black;">%.3f</td>
-                    <td style="border: 1px solid black;">%.3f</td>
-                    <td style="border: 1px solid black;">%s</td>
-                    <td style="border: 1px solid black;">%s</td>
-                </tr>
-        """;
+    private static final String TABLE_TEMPLATE = "<div id=\"packageTable\">\n" +
+                                                 "    <table style=\"border: 1px solid black;\" class=\"sortable\">\n" +
+                                                 "        <tr>\n" +
+                                                 "            <th style=\"border: 1px solid black;\">Пакет</th>\n" +
+                                                 "            <th style=\"border: 1px solid black;\">CCN</th>\n" +
+                                                 "            <th style=\"border: 1px solid black;\">Абстрактность</th>\n" +
+                                                 "            <th style=\"border: 1px solid black;\">Нестабильность</th>\n" +
+                                                 "            <th style=\"border: 1px solid black;\">Связность</th>\n" +
+                                                 "            <th style=\"border: 1px solid black;\">Афферентные зависимости</th>\n" +
+                                                 "            <th style=\"border: 1px solid black;\">Эфферентные зависимости</th>\n" +
+                                                 "        </tr>\n" +
+                                                 "        %s\n" +
+                                                 "    </table>\n" +
+                                                 "</div>\n";
+    private static final String ROW_TEMPLATE = "        <tr>\n" +
+                                               "            <td style=\"border: 1px solid black;\">%s</td>\n" +
+                                               "            <td style=\"border: 1px solid black;\">%.3f</td>\n" +
+                                               "            <td style=\"border: 1px solid black;\">%.3f</td>\n" +
+                                               "            <td style=\"border: 1px solid black;\">%.3f</td>\n" +
+                                               "            <td style=\"border: 1px solid black;\">%.3f</td>\n" +
+                                               "            <td style=\"border: 1px solid black;\">%s</td>\n" +
+                                               "            <td style=\"border: 1px solid black;\">%s</td>\n" +
+                                               "        </tr>\n";
 
     @Override
     public void generateContent(DependencyModel dependencyModel, Report report) {
