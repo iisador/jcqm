@@ -5,15 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.isador.jcqm</groupId>
-    <artifactId>main</artifactId>
+    <artifactId>console</artifactId>
     <version>2.0.4</version>
     <packaging>jar</packaging>
 
     <properties>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
     <dependencies>

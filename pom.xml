@@ -17,7 +17,7 @@
         <module>pumlplugin</module>
         <module>statplugin</module>
         <module>chartplugin</module>
-        <module>main</module>
+        <module>console</module>
     </modules>
 
     <build>
