@@ -53,7 +53,6 @@ class ClassAnalyzer extends ClassVisitor {
         }
         dependencyResolver.getDependency(currentPackageInfo, superName)
                           .ifPresent(dependency -> simpleDependencyModel.addDependency(currentClassInfo, dependency));
-        //        System.out.println(superName);
     }
 
     @Override

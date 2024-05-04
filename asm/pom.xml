@@ -25,6 +25,7 @@
             <groupId>ru.isador.jcqm</groupId>
             <artifactId>framework</artifactId>
             <version>2.0.4</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ru.isador.jcqm</groupId>

@@ -12,7 +12,7 @@ import ru.isador.jcqm.framework.asm.model.Dependency;
 import ru.isador.jcqm.framework.asm.model.SimpleDependencyModel;
 import ru.isador.jcqm.model.DependencyType;
 
-public class DependencyResolver {
+class DependencyResolver {
 
     private final SimpleDependencyModel simpleDependencyModel;
 

@@ -2,7 +2,7 @@ package ru.isador.jcqm.model;
 
 import java.util.Collection;
 
-/** Аггрегированная информация о пакетах проекта. */
+/** Агрегированная информация о пакетах проекта. */
 public interface DependencyModel {
 
     Collection<? extends PackageInfo> getPackages();

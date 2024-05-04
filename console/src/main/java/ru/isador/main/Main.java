@@ -29,8 +29,7 @@ public class Main {
 
     private static Map<String, Object> getAnalyzerProperties() {
         Map<String, Object> analyzerProperties = new HashMap<>();
-        analyzerProperties.put(ProjectAnalyzer.EXCLUDE_PACKAGES,
-            List.of(System.getenv("EXCLUDE").split(File.pathSeparator)));
+        analyzerProperties.put(ProjectAnalyzer.EXCLUDE_PACKAGES, List.of(System.getenv("EXCLUDE").split(File.pathSeparator)));
 
         return analyzerProperties;
     }
