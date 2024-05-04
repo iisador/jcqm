@@ -1,4 +1,4 @@
-package ru.isador.main;
+package ru.isador.jcqm.console;
 
 import java.io.File;
 import java.io.IOException;

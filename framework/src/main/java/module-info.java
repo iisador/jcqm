@@ -1,7 +1,8 @@
 import ru.isador.jcqm.framework.ProjectAnalyzer;
 
-module ru.isador.metrics.framework {
-    requires transitive ru.isador.metrics.model;
+module jcqm.framework {
+
+    requires transitive jcqm.model;
 
     exports ru.isador.jcqm.framework;
 

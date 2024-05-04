@@ -3,8 +3,8 @@ import ru.isador.jcqm.report.puml.DiagramPlugin;
 
 module ru.isador.metrics.report.plugins.puml {
 
-    requires ru.isador.metrics.model;
-    requires ru.isador.mitrics.report;
+    requires jcqm.model;
+    requires jcqm.report;
     requires net.sourceforge.plantuml;
 
     provides ReportPlugin with DiagramPlugin;

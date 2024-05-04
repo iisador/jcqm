@@ -1,6 +1,7 @@
 module ru.isador.main {
+
     uses ru.isador.jcqm.framework.ProjectAnalyzer;
 
-    requires ru.isador.metrics.framework;
-    requires ru.isador.mitrics.report;
+    requires jcqm.framework;
+    requires jcqm.report;
 }

@@ -1,4 +1,4 @@
-module ru.isador.metrics.model {
+module jcqm.model {
 
     exports ru.isador.jcqm.model;
 }

@@ -1,9 +1,10 @@
 import ru.isador.jcqm.framework.ProjectAnalyzer;
 import ru.isador.jcqm.framework.asm.AsmProjectAnalyzer;
 
-module ru.isador.metrics.framework.asm {
-    requires transitive ru.isador.metrics.model;
-    requires transitive ru.isador.metrics.framework;
+module jcqm.framework.asm {
+
+    requires transitive jcqm.model;
+    requires transitive jcqm.framework;
 
     requires org.objectweb.asm;
 
