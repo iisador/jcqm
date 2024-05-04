@@ -4,4 +4,7 @@ module ru.isador.main {
 
     requires jcqm.framework;
     requires jcqm.report;
+    requires jcommander;
+
+    exports ru.isador.jcqm.console to jcommander;
 }
