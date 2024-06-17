@@ -16,7 +16,7 @@ public class ReportProvider {
         Report report = new Report(reportDir);
         ReportConfig config = new ReportConfig();
 
-        ServiceLoader<ReportPlugin> pluginsLoader = ServiceLoader.load(ModuleLayer.boot(), ReportPlugin.class);
+        ServiceLoader<ReportPlugin> pluginsLoader = ServiceLoader.load(ReportPlugin.class);
         pluginsLoader.stream()
             .map(ServiceLoader.Provider::get)
             .peek(p -> p.configure(config))
